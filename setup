@@ -1,0 +1,28 @@
+git clone --bare https://github.com/kaykhan/.dotfiles.git $HOME/.dotfiles
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+
+1. Workspace shortcuts
+
+Settings -> Keyboard -> View/Customise Shortcuts -> Navigation -> Move to workspace on left/right
+
+2. Unite Shell gnome extention (hide top bar)
+
+https://github.com/hardpixel/unite-shell
+
+3. gnome-tweaks
+
+keyboard & mouse -> Accleeration Profile -> Flat 
+
+Theme
+
+sudo apt install polybar
+
+install hide top bar > intelli hide toggle on both
+
+TODO:
+Add .fonts to dotfiles
+add depdencies and setup to dotfiles
+
+user theme
+dash to panel
