@@ -20,6 +20,8 @@ npm install -g neovim eslint_d npm-check-updates prettier typescript-language-se
 
 # tmux
 sudo apt-get install tmux xclip
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm # install plugins
+tmux && ctrl + b  + (shift + I)
 
 #homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
