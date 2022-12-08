@@ -47,7 +47,7 @@ Plug 'folke/trouble.nvim'
 Plug 'jiangmiao/auto-pairs'
 
 "react snippets"
-Plug 'SirVer/ultisnips' "causing tab to not work
+"Plug 'SirVer/ultisnips' "causing tab to not work
 Plug 'mlaursen/vim-react-snippets'
 Plug 'honza/vim-snippets'
 
@@ -60,13 +60,19 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'mxsdev/nvim-dap-vscode-js'
 
+"snippets
+Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.1.0'}
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
+Plug 'rafamadriz/friendly-snippets'
 
+Plug 'xiyaowong/nvim-transparent'
 
 call plug#end()
  
 
 
-source ~/.config/nvim/plugins/ultisnips.vim
+"source ~/.config/nvim/plugins/ultisnips.vim
 source ~/.config/nvim/plugins/lsp/lsp.vim
 source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/nvim-tree.vim
@@ -76,7 +82,9 @@ source ~/.config/nvim/plugins/lualine.vim
 source ~/.config/nvim/plugins/nvim-cmp.vim
 source ~/.config/nvim/plugins/lsp-signature.vim
 source ~/.config/nvim/plugins/indent-blankline.vim
-"source ~/.config/nvim/plugins/bufferline.vim
+source ~/.config/nvim/plugins/bufferline.vim
 source ~/.config/nvim/plugins/dap.vim
+source ~/.config/nvim/plugins/lua-snip.vim
+source ~/.config/nvim/plugins/nvim-transparent.vim
 
 
