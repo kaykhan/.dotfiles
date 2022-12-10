@@ -2,16 +2,13 @@
 " URL: https://github.com/sainnhe/sonokai/
 " Filename: autoload/lightline/colorscheme/sonokai.vim
 " Author: Sainnhepark
-" Email: i@sainnhe.dev
+" Email: sainnhe@gmail.com
 " License: MIT License
 " =============================================================================
 
 " Initialization: {{{
 let s:configuration = sonokai#get_configuration()
-let s:palette = sonokai#get_palette(s:configuration.style, s:configuration.colors_override)
-if s:configuration.transparent_background == 2
-  let s:palette.bg1 = s:palette.none
-endif
+let s:palette = sonokai#get_palette(s:configuration.style)
 "}}}
 " Definition: {{{
 let s:tab_l_fg = s:palette.fg

@@ -20,9 +20,18 @@ sudo apt install polybar
 
 install hide top bar > intelli hide toggle on both
 
-TODO:
-Add .fonts to dotfiles
-add depdencies and setup to dotfiles
 
 user theme
 dash to panel
+
+
+Blure my shell
+
+General:
+- sigma: 20
+brightness: 60
+Applications:
+- sigma 10
+- brightness 1.00
+- opacity 220
+
