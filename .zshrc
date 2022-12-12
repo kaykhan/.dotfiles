@@ -131,4 +131,4 @@ eval "$(pyenv init -)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias dotfiles='/usr/bin/git --git-dir=/home/kay/.dotfiles/ --work-tree=/home/kay'
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+#source ~/powerlevel10k/powerlevel10k.zsh-theme

@@ -1,5 +1,5 @@
 # Init
-sudo apt-get install curl -y 
+sudo apt-get install curl git -y 
 sudo apt install gnome-tweaks 
 
 # ZSH

@@ -6,19 +6,35 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 Settings -> Keyboard -> View/Customise Shortcuts -> Navigation -> Move to workspace on left/right
 
+
+1. Install browser extention
+
+- https://extensions.gnome.org/
+- sudo apt install gnome-shell-extensions
+
+1. gnome-tweaks
+
+- keyboard & mouse -> Accleeration Profile -> Flat 
+- appearence -> applications -> graphite dark
+- https://extensions.gnome.org/extension/19/user-themes/
+- appearence -> shell -> graphite dark
+
+
+1. extentions
+
+- Aylurs Widgets
+- Blur my shell
+- Dash to panel
+- extnetion list
+- unite 
+- vitals
+
+
 2. Unite Shell gnome extention (hide top bar)
 
 https://github.com/hardpixel/unite-shell
 
-3. gnome-tweaks
 
-keyboard & mouse -> Accleeration Profile -> Flat 
-
-Theme
-
-sudo apt install polybar
-
-install hide top bar > intelli hide toggle on both
 
 
 user theme
