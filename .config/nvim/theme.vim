@@ -5,17 +5,27 @@ let g:nvcode_termcolors=256
 " colorscheme nvcode " Or whatever colorscheme you make
 
 let g:sonokai_style = 'shusia'
-"let g:sonokai_enable_italic = 1
-let g:sonokai_disable_italic_comment = 1
+""let g:sonokai_enable_italic = 1
+"let g:sonokai_disable_italic_comment = 1
 
 
 colorscheme sonokai
+
+lua << EOF
+--vim.opt.background = "dark" -- set this to dark or light
+--vim.cmd("colorscheme oxocarbon")
+EOF
+
+"custom theme 
+highlight TSFunction gui=bold
+highlight @function.call gui=bold
+"
 
 
 
 hi Search guibg=#ffdd33 guifg=#000000
 
-
+:highlight Search guibg=Turquoise4
 " checks if your terminal has 24-bit color support
 if (has("termguicolors"))
     set termguicolors

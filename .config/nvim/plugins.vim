@@ -67,9 +67,9 @@ Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --f
 Plug 'rafamadriz/friendly-snippets'
 
 Plug 'xiyaowong/nvim-transparent'
+Plug 'nyoom-engineering/oxocarbon.nvim'
 
 call plug#end()
- 
 
 
 "source ~/.config/nvim/plugins/ultisnips.vim
