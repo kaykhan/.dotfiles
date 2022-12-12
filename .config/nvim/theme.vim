@@ -25,7 +25,6 @@ highlight @function.call gui=bold
 
 hi Search guibg=#ffdd33 guifg=#000000
 
-:highlight Search guibg=Turquoise4
 " checks if your terminal has 24-bit color support
 if (has("termguicolors"))
     set termguicolors
