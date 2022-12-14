@@ -2267,7 +2267,7 @@ StEntry StLabel.hint-text, .search-entry StLabel.hint-text {
   color: rgba(255, 255, 255, 0.7);
   font-feature-settings: "tnum";
   transition-duration: 250ms;
-  font-size: 10pt;
+  font-size: 11pt;
 }
 
 #panel .panel-corner {
