@@ -69,6 +69,10 @@ Plug 'goolord/alpha-nvim'
 
 Plug 'numToStr/Comment.nvim'
 
+Plug 'MunifTanjim/nui.nvim'
+Plug 'jackMort/ChatGPT.nvim'
+"Plug 'github/copilot.vim'
+
 call plug#end()
 
 
@@ -91,3 +95,5 @@ source ~/.config/nvim/plugins/gitsigns.vim
 source ~/.config/nvim/plugins/nvim-colorizer.vim
 source ~/.config/nvim/plugins/comment.vim
 source ~/.config/nvim/plugins/whichkey.vim
+source ~/.config/nvim/plugins/chatgpt.vim
+
