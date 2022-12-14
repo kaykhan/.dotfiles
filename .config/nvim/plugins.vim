@@ -67,6 +67,8 @@ Plug 'norcalli/nvim-colorizer.lua'
 
 Plug 'goolord/alpha-nvim'
 
+Plug 'numToStr/Comment.nvim'
+
 call plug#end()
 
 
@@ -87,3 +89,5 @@ source ~/.config/nvim/plugins/alpha-nvim.vim
 source ~/.config/nvim/plugins/nvim-autopairs.vim
 source ~/.config/nvim/plugins/gitsigns.vim
 source ~/.config/nvim/plugins/nvim-colorizer.vim
+source ~/.config/nvim/plugins/comment.vim
+source ~/.config/nvim/plugins/whichkey.vim
