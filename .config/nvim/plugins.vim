@@ -10,12 +10,6 @@ Plug 'kyazdani42/nvim-tree.lua'
 "Theme
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-Plug 'dikiaap/minimalist'
-Plug 'christianchiarulli/nvcode-color-schemes.vim'
-"Plug 'sainnhe/sonokai'
-Plug 'projekt0n/github-nvim-theme'
 
 "Telescope
 Plug 'nvim-lua/popup.nvim'
@@ -23,8 +17,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 "Git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
 
 "lspconfig
 Plug 'neovim/nvim-lspconfig'
@@ -44,7 +37,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
 
 "pairs"
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 
 "react snippets"
 "Plug 'SirVer/ultisnips' "causing tab to not work
@@ -59,6 +52,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'mxsdev/nvim-dap-vscode-js'
+Plug 'theHamsta/nvim-dap-virtual-text'
+Plug 'nvim-telescope/telescope-dap.nvim'
 
 "snippets
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.1.0'}
@@ -68,11 +63,13 @@ Plug 'rafamadriz/friendly-snippets'
 
 Plug 'xiyaowong/nvim-transparent'
 Plug 'nyoom-engineering/oxocarbon.nvim'
+Plug 'norcalli/nvim-colorizer.lua'
+
+Plug 'goolord/alpha-nvim'
 
 call plug#end()
 
 
-"source ~/.config/nvim/plugins/ultisnips.vim
 source ~/.config/nvim/plugins/lsp/lsp.vim
 source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/nvim-tree.vim
@@ -82,9 +79,11 @@ source ~/.config/nvim/plugins/lualine.vim
 source ~/.config/nvim/plugins/nvim-cmp.vim
 source ~/.config/nvim/plugins/lsp-signature.vim
 source ~/.config/nvim/plugins/indent-blankline.vim
-source ~/.config/nvim/plugins/bufferline.vim
+"source ~/.config/nvim/plugins/bufferline.vim
 source ~/.config/nvim/plugins/dap.vim
 source ~/.config/nvim/plugins/lua-snip.vim
 source ~/.config/nvim/plugins/nvim-transparent.vim
-
-
+source ~/.config/nvim/plugins/alpha-nvim.vim
+source ~/.config/nvim/plugins/nvim-autopairs.vim
+source ~/.config/nvim/plugins/gitsigns.vim
+source ~/.config/nvim/plugins/nvim-colorizer.vim

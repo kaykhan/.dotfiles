@@ -9,11 +9,11 @@ require('lualine').setup {
     options = {
         theme = custom_codedark
     },
-    --tabline = {
-    --    lualine_a = {'buffers'},
-    --    lualine_x = {},
-    --    lualine_y = {},
-    --    lualine_z = {'tabs'}
-    --}
+    tabline = {
+        lualine_a = {'buffers'},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {'tabs'}
+    }
 }
 END
