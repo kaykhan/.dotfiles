@@ -132,3 +132,9 @@ eval "$(pyenv init -)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias dotfiles='/usr/bin/git --git-dir=/home/kay/.dotfiles/ --work-tree=/home/kay'
 #source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+if [ -f ~/.env ]; then
+    source ~/.env
+else
+    print "404: ~/.env"
+fi
