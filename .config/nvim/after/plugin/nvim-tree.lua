@@ -1,8 +1,4 @@
-set termguicolors
-highlight NvimTreeFolderIcon guibg=blue
-
-lua << EOF
-require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
+require'nvim-tree'.setup {
   auto_reload_on_write = true,
   disable_netrw = false,
   hijack_cursor = false,
@@ -112,12 +108,8 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
       profile = false,
     },
   },
-} -- END_DEFAULT_OPTS
-EOF
+}
 
-nnoremap <C-n> :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>n :NvimTreeFindFile<CR>
-
-
-
+vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>r", ":NvimTreeRefresh<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeFindFile<CR>", {})
