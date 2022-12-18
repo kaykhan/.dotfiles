@@ -6,6 +6,9 @@ if not ok then
 	return
 end
 
+--vim.opt.background = "dark" -- set this to dark or light
+--vim.cmd("colorscheme oxocarbon")
+
 -- Custom Highlights
 vim.cmd("highlight TSFunction gui=bold")
 vim.cmd("highlight @function.call gui=bold")
@@ -19,6 +22,5 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
---vim.cmd([[ sign define DiagnosticSignError text= linehl= texthl=DiagnosticSignError numhl= sign define DiagnosticSignWarn text= linehl= texthl=DiagnosticSignWarn numhl= sign define DiagnosticSignInfo text= linehl= texthl=DiagnosticSignInfo numhl= sign define DiagnosticSignHint text=💡 linehl= texthl=DiagnosticSignHint numhl= ]])
-
 vim.cmd("highlight! link LspSagaHoverBorder Gray")
+vim.cmd("highlight! link DiagnosticSignHint Gray")
