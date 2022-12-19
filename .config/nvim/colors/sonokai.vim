@@ -282,18 +282,18 @@ if s:configuration.diagnostic_text_highlight
   call sonokai#highlight('ErrorText', s:palette.none, s:palette.diff_red, 'undercurl', s:palette.red)
   call sonokai#highlight('WarningText', s:palette.none, s:palette.diff_yellow, 'undercurl', s:palette.yellow)
   call sonokai#highlight('InfoText', s:palette.none, s:palette.diff_blue, 'undercurl', s:palette.blue)
-  call sonokai#highlight('HintText', s:palette.none, s:palette.diff_green, 'undercurl', s:palette.green)
+  call sonokai#highlight('HintText', s:palette.none, s:palette.diff_grey, 'undercurl', s:palette.grey)
 else
   call sonokai#highlight('ErrorText', s:palette.none, s:palette.none, 'undercurl', s:palette.red)
   call sonokai#highlight('WarningText', s:palette.none, s:palette.none, 'undercurl', s:palette.yellow)
   call sonokai#highlight('InfoText', s:palette.none, s:palette.none, 'undercurl', s:palette.blue)
-  call sonokai#highlight('HintText', s:palette.none, s:palette.none, 'undercurl', s:palette.green)
+  call sonokai#highlight('HintText', s:palette.none, s:palette.none, 'undercurl', s:palette.grey)
 endif
 if s:configuration.diagnostic_line_highlight
   call sonokai#highlight('ErrorLine', s:palette.none, s:palette.diff_red)
   call sonokai#highlight('WarningLine', s:palette.none, s:palette.diff_yellow)
   call sonokai#highlight('InfoLine', s:palette.none, s:palette.diff_blue)
-  call sonokai#highlight('HintLine', s:palette.none, s:palette.diff_green)
+  call sonokai#highlight('HintLine', s:palette.none, s:palette.diff_grey)
 else
   highlight clear ErrorLine
   highlight clear WarningLine
@@ -314,7 +314,7 @@ endif
 call sonokai#highlight('ErrorFloat', s:palette.red, s:palette.bg2)
 call sonokai#highlight('WarningFloat', s:palette.yellow, s:palette.bg2)
 call sonokai#highlight('InfoFloat', s:palette.blue, s:palette.bg2)
-call sonokai#highlight('HintFloat', s:palette.green, s:palette.bg2)
+call sonokai#highlight('HintFloat', s:palette.grey, s:palette.bg2)
 if &diff
   call sonokai#highlight('CurrentWord', s:palette.bg0, s:palette.green)
 elseif s:configuration.current_word ==# 'grey background'
@@ -1065,7 +1065,7 @@ call sonokai#highlight('DefinitionPreviewTitle', s:palette.purple, s:palette.non
 highlight! link LspSagaDiagnosticError Red
 highlight! link LspSagaDiagnosticWarn Yellow
 highlight! link LspSagaDiagnosticInfo Blue
-highlight! link LspSagaDiagnosticHint Green
+highlight! link LspSagaDiagnosticHint Gray 
 highlight! link LspSagaErrorTrunCateLine LspSagaDiagnosticError
 highlight! link LspSagaWarnTrunCateLine LspSagaDiagnosticWarn
 highlight! link LspSagaInfoTrunCateLine LspSagaDiagnosticInfo

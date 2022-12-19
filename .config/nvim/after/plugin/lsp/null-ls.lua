@@ -12,6 +12,7 @@ null_ls.setup({
 	--debug = true,
 	-- setup formatters & linters
 	sources = {
+		null_ls.builtins.code_actions.gitsigns,
 		diagnostics.eslint_d.with({
 			diagnostics_format = "#{m} #{s}(#{c})",
 		}),
@@ -20,4 +21,3 @@ null_ls.setup({
 		formatting.prettier,
 	},
 })
-

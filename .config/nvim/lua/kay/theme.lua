@@ -24,3 +24,9 @@ end
 
 vim.cmd("highlight! link LspSagaHoverBorder Gray")
 vim.cmd("highlight! link DiagnosticSignHint Gray")
+--vim.cmd("highlight! link DiagnosticHint Gray")
+--vim.cmd("highlight! link DiagnosticUnderlineHint Gray")
+--vim.cmd("highlight! link LspHintHighlight Gray")
+--vim.cmd("highlight! link LspDiagnosticsFloatingHint Gray")
+--vim.cmd("highlight! link DiagnosticFloatingHint Gray")
+--vim.cmd("highlight! link LspDiagnosticsUnderlineHint Gray")

@@ -57,6 +57,11 @@ local on_attach = function(client, bufnr)
 	end, bufopts)
 end
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
+                 {update_in_insert = true})
+
+
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 lspconfig["sumneko_lua"].setup({
@@ -80,6 +85,12 @@ lspconfig["sumneko_lua"].setup({
 })
 
 lspconfig["tsserver"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+
+lspconfig["pyright"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
