@@ -30,3 +30,12 @@ vim.cmd("highlight! link DiagnosticSignHint Gray")
 --vim.cmd("highlight! link LspDiagnosticsFloatingHint Gray")
 --vim.cmd("highlight! link DiagnosticFloatingHint Gray")
 --vim.cmd("highlight! link LspDiagnosticsUnderlineHint Gray")
+
+-- nvim-scrollbar
+vim.cmd("highlight! link DiagnosticVirtualTextError Red")
+vim.cmd("highlight! link DiagnosticVirtualTextWarn Yellow")
+vim.cmd("highlight! link DiagnosticVirtualTextInfo Blue")
+--vim.cmd("highlight! link DiagnosticVirtualTextHint Gray")
+
+-- illuminate
+vim.cmd("highlight! link illuminatedWord Red")

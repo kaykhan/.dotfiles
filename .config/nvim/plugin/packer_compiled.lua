@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/kay/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["fidget.nvim"] = {
+    loaded = true,
+    path = "/home/kay/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/kay/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -209,6 +214,11 @@ _G.packer_plugins = {
     path = "/home/kay/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-scrollbar"] = {
+    loaded = true,
+    path = "/home/kay/.local/share/nvim/site/pack/packer/start/nvim-scrollbar",
+    url = "https://github.com/petertriho/nvim-scrollbar"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/kay/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -265,6 +275,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kay/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
+  },
+  ["vim-illuminate"] = {
+    loaded = true,
+    path = "/home/kay/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
   },
   ["vim-surround"] = {
     loaded = true,

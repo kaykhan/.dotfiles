@@ -134,6 +134,12 @@ return require("packer").startup(function(use)
 		opt = true,
 		run = "npm install --legacy-peer-deps && npm run compile",
 	})
+
+	use("j-hui/fidget.nvim")
+
+	use("petertriho/nvim-scrollbar")
+	use("RRethy/vim-illuminate")
+	--
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
