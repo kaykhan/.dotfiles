@@ -38,4 +38,6 @@ vim.cmd("highlight! link DiagnosticVirtualTextInfo Blue")
 --vim.cmd("highlight! link DiagnosticVirtualTextHint Gray")
 
 -- illuminate
-vim.cmd("highlight! link illuminatedWord Red")
+vim.cmd("hi IlluminatedWordRead guibg=#525252")
+vim.cmd("hi IlluminatedWordWrite guibg=NONE")
+
