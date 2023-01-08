@@ -56,7 +56,7 @@ for _, language in ipairs({ "typescript", "javascript" }) do
     cwd = "${workspaceFolder}",
 	protocol = "inspector",
 	console = "integratedTerminal",
-	runtimeExecutable = "${workspaceFolder}/node_modules/.bin/ts-node",
+	runtimeExecutable = "${workspaceFolder}/node_modules/.bin/jest",
     resolveSourceMapLocations = { "${workspaceFolder}/dist/**/*.js", "${workspaceFolder}/**", "!**/node_modules/**" },
     --skipFiles = { "<node_internals>/**", "**/node_modules/**" },
     port = 9229,
