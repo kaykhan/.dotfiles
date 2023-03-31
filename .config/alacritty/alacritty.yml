@@ -7,6 +7,9 @@ font:
   normal:
     family: "Iosevka Custom"
   size: 12
+  offset:
+      x: 0    # For letter spacing.
+      y: 2  
 
 window:
   opacity: 0.8

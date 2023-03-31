@@ -64,7 +64,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-lspconfig["sumneko_lua"].setup({
+lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = { -- custom settings for lua
@@ -95,7 +95,12 @@ lspconfig["pyright"].setup({
 	on_attach = on_attach,
 })
 
-lspconfig["yamlls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+--lspconfig["yamlls"].setup({
+--	capabilities = capabilities,
+--	on_attach = on_attach,
+--})
+
+lspconfig["terraformls"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
 })
