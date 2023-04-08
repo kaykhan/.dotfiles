@@ -13,11 +13,11 @@ null_ls.setup({
 	-- setup formatters & linters
 	sources = {
 		null_ls.builtins.code_actions.gitsigns,
-		diagnostics.eslint_d.with({
+		diagnostics.eslint.with({
 			diagnostics_format = "#{m} #{s}(#{c})",
 		}),
 		formatting.stylua,
-		formatting.eslint_d,
+		formatting.eslint,
 		formatting.prettier,
 	},
 })
