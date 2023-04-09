@@ -53,6 +53,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
     vim.keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts)
 	vim.keymap.set("n", "<space>f", function()
+        --vim.lsp.buf.formatting_sync()
 		vim.lsp.buf.format({ async = true })
 	end, bufopts)
 end

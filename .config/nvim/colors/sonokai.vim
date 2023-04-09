@@ -91,8 +91,8 @@ call sonokai#highlight('MatchParen', s:palette.none, s:palette.bg4)
 call sonokai#highlight('NonText', s:palette.bg4, s:palette.none)
 call sonokai#highlight('Whitespace', s:palette.bg4, s:palette.none)
 call sonokai#highlight('SpecialKey', s:palette.bg4, s:palette.none)
-call sonokai#highlight('Pmenu', s:palette.fg, s:palette.bg2)
-call sonokai#highlight('PmenuSbar', s:palette.none, s:palette.bg2)
+call sonokai#highlight('Pmenu', s:palette.fg, s:palette.bg1)
+call sonokai#highlight('PmenuSbar', s:palette.none, s:palette.bg1)
 if s:configuration.menu_selection_background ==# 'blue'
   call sonokai#highlight('PmenuSel', s:palette.bg0, s:palette.bg_blue)
 elseif s:configuration.menu_selection_background ==# 'green'
@@ -102,8 +102,8 @@ elseif s:configuration.menu_selection_background ==# 'red'
 endif
 highlight! link WildMenu PmenuSel
 call sonokai#highlight('PmenuThumb', s:palette.none, s:palette.grey)
-call sonokai#highlight('NormalFloat', s:palette.fg, s:palette.bg2)
-call sonokai#highlight('FloatBorder', s:palette.grey, s:palette.bg2)
+call sonokai#highlight('NormalFloat', s:palette.fg, s:palette.bg1)
+call sonokai#highlight('FloatBorder', s:palette.grey, s:palette.bg0)
 call sonokai#highlight('Question', s:palette.yellow, s:palette.none)
 if s:configuration.spell_foreground ==# 'none'
   call sonokai#highlight('SpellBad', s:palette.none, s:palette.none, 'undercurl', s:palette.red)
