@@ -110,6 +110,6 @@ require'nvim-tree'.setup {
   },
 }
 
-vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", {})
-vim.api.nvim_set_keymap("n", "<leader>r", ":NvimTreeRefresh<CR>", {})
-vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeFindFile<CR>", {})
+--vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", {})
+--vim.api.nvim_set_keymap("n", "<leader>r", ":NvimTreeRefresh<CR>", {})
+--vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeFindFile<CR>", {})
