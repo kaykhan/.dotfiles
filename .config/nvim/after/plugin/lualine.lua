@@ -44,7 +44,8 @@ require("lualine").setup({
 		lualine_y = {},
 		lualine_z = { "tabs" },
 	},
-	winbar = {},
+	winbar = {
+	},
 	inactive_winbar = {},
 	extensions = {},
 })

@@ -74,6 +74,34 @@ return require("packer").startup(function(use)
 	})
 
 	use({
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
+	})
+
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+		config = function()
+			require("toggleterm").setup()
+		end,
+	})
+
+	use({
+		"utilyre/sentiment.nvim",
+		tag = "*",
+		config = function()
+			require("sentiment").setup({
+				-- config
+			})
+		end,
+	})
+
+	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
 			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
