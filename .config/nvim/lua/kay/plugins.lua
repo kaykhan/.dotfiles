@@ -74,6 +74,11 @@ return require("packer").startup(function(use)
 	})
 
 	use({
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
+	})
+
+	use({
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
 		requires = {
@@ -82,6 +87,8 @@ return require("packer").startup(function(use)
 			"MunifTanjim/nui.nvim",
 		},
 	})
+
+	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
 
 	use({
 		"akinsho/toggleterm.nvim",

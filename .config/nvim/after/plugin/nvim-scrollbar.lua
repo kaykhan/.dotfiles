@@ -18,4 +18,11 @@ require("scrollbar").setup({
 		handle = true,
 		search = false, -- Requires hlslens
 	},
+	excluded_filetypes = {
+		"prompt",
+		"TelescopePrompt",
+		"noice",
+		"neo-tree",
+		"neo-tree-popup",
+	},
 })
