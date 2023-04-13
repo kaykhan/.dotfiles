@@ -8,10 +8,10 @@ require("lualine").setup({
 		icons_enabled = true,
 		theme = custom_codedark,
 		component_separators = { left = "|", right = "|" },
-		section_separators = { left = " ", right = " " },
+		section_separators = { left = "", right = "" },
 		disabled_filetypes = {
-			statusline = {},
-			winbar = {},
+			statusline = { "neo-tree" },
+			winbar = { "neo-tree" },
 		},
 		ignore_focus = {},
 		always_divide_middle = true,
@@ -24,9 +24,9 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff" },
-		lualine_c = { "filename" },
-		lualine_x = { "diagnostics", "encoding", "fileformat", "filetype" },
+		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_c = { { "filename", path = 3 } },
+		lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
 	},
@@ -38,14 +38,17 @@ require("lualine").setup({
 		lualine_y = {},
 		lualine_z = {},
 	},
-	tabline = {
-		lualine_a = { "buffers" },
-		lualine_x = {},
-		lualine_y = {},
-		lualine_z = { "tabs" },
-	},
-	winbar = {
-	},
-	inactive_winbar = {},
+	--tabline = {
+	--	lualine_a = { "buffers" },
+	--	lualine_z = { "tabs" },
+	--},
+	--winbar = {
+	--	lualine_a = { "buffers" },
+	--	lualine_z = { "tabs" },
+	--},
+	--inactive_winbar = {
+	--	lualine_a = { "buffers" },
+	--	lualine_z = { "tabs" },
+	--},
 	extensions = {},
 })

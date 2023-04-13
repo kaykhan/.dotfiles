@@ -41,7 +41,7 @@ vim.cmd("highlight! link DiagnosticVirtualTextInfo Blue")
 vim.cmd("hi IlluminatedWordRead guibg=#525252")
 vim.cmd("hi IlluminatedWordWrite guibg=NONE")
 
-
+vim.cmd("hi FolderName guifg=#bababa")
 
 -- Link nvimtree colors to neotree until sonokai implements neotree colors
 vim.cmd([[
@@ -51,4 +51,7 @@ highlight! link NeoTreeSymbolicLinkTarget NvimTreeSymlink
 highlight! link NeoTreeRootName NvimTreeRootFolder
 highlight! link NeoTreeDirectoryName NvimTreeOpenedFolderName
 highlight! link NeoTreeFileNameOpened NvimTreeOpenedFile
+highlight! link NeoTreeDirectoryName FolderName
+highlight! link NeoTreeGitModified Yellow
 ]])
+
