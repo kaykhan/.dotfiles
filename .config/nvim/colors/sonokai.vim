@@ -325,44 +325,44 @@ endif
 " }}}
 " }}}
 " Terminal: {{{
-if ((has('termguicolors') && &termguicolors) || has('gui_running')) && !s:configuration.disable_terminal_colors
-  " Definition
-  let s:terminal = {
-        \ 'black':           s:palette.black,
-        \ 'red':             s:palette.red,
-        \ 'yellow':          s:palette.yellow,
-        \ 'green':           s:palette.green,
-        \ 'cyan':            s:palette.orange,
-        \ 'blue':            s:palette.blue,
-        \ 'purple':          s:palette.purple,
-        \ 'white':           s:palette.fg,
-        \ 'bright_black':    s:palette.grey,
-        \ }
-  " Implementation: {{{
-  if !has('nvim')
-    let g:terminal_ansi_colors = [s:terminal.black[0], s:terminal.red[0], s:terminal.green[0], s:terminal.yellow[0],
-          \ s:terminal.blue[0], s:terminal.purple[0], s:terminal.cyan[0], s:terminal.white[0], s:terminal.black[0], s:terminal.red[0],
-          \ s:terminal.green[0], s:terminal.yellow[0], s:terminal.blue[0], s:terminal.purple[0], s:terminal.cyan[0], s:terminal.white[0]]
-  else
-    let g:terminal_color_0 = s:terminal.black[0]
-    let g:terminal_color_1 = s:terminal.red[0]
-    let g:terminal_color_2 = s:terminal.green[0]
-    let g:terminal_color_3 = s:terminal.yellow[0]
-    let g:terminal_color_4 = s:terminal.blue[0]
-    let g:terminal_color_5 = s:terminal.purple[0]
-    let g:terminal_color_6 = s:terminal.cyan[0]
-    let g:terminal_color_7 = s:terminal.white[0]
-    let g:terminal_color_8 = s:terminal.bright_black[0]
-    let g:terminal_color_9 = s:terminal.red[0]
-    let g:terminal_color_10 = s:terminal.green[0]
-    let g:terminal_color_11 = s:terminal.yellow[0]
-    let g:terminal_color_12 = s:terminal.blue[0]
-    let g:terminal_color_13 = s:terminal.purple[0]
-    let g:terminal_color_14 = s:terminal.cyan[0]
-    let g:terminal_color_15 = s:terminal.white[0]
-  endif
-  " }}}
-endif
+"if ((has('termguicolors') && &termguicolors) || has('gui_running')) && !s:configuration.disable_terminal_colors
+"  " Definition
+"  let s:terminal = {
+"        \ 'black':           s:palette.black,
+"        \ 'red':             s:palette.red,
+"        \ 'yellow':          s:palette.yellow,
+"        \ 'green':           s:palette.green,
+"        \ 'cyan':            s:palette.orange,
+"        \ 'blue':            s:palette.blue,
+"        \ 'purple':          s:palette.purple,
+"        \ 'white':           s:palette.fg,
+"        \ 'bright_black':    s:palette.grey,
+"        \ }
+"  " Implementation: {{{
+"  if !has('nvim')
+"    let g:terminal_ansi_colors = [s:terminal.black[0], s:terminal.red[0], s:terminal.green[0], s:terminal.yellow[0],
+"          \ s:terminal.blue[0], s:terminal.purple[0], s:terminal.cyan[0], s:terminal.white[0], s:terminal.black[0], s:terminal.red[0],
+"          \ s:terminal.green[0], s:terminal.yellow[0], s:terminal.blue[0], s:terminal.purple[0], s:terminal.cyan[0], s:terminal.white[0]]
+"  else
+"    let g:terminal_color_0 = s:terminal.black[0]
+"    let g:terminal_color_1 = s:terminal.red[0]
+"    let g:terminal_color_2 = s:terminal.green[0]
+"    let g:terminal_color_3 = s:terminal.yellow[0]
+"    let g:terminal_color_4 = s:terminal.blue[0]
+"    let g:terminal_color_5 = s:terminal.purple[0]
+"    let g:terminal_color_6 = s:terminal.cyan[0]
+"    let g:terminal_color_7 = s:terminal.white[0]
+"    let g:terminal_color_8 = s:terminal.bright_black[0]
+"    let g:terminal_color_9 = s:terminal.red[0]
+"    let g:terminal_color_10 = s:terminal.green[0]
+"    let g:terminal_color_11 = s:terminal.yellow[0]
+"    let g:terminal_color_12 = s:terminal.blue[0]
+"    let g:terminal_color_13 = s:terminal.purple[0]
+"    let g:terminal_color_14 = s:terminal.cyan[0]
+"    let g:terminal_color_15 = s:terminal.white[0]
+"  endif
+"  " }}}
+"endif
 " }}}
 " Plugins: {{{
 " nvim-treesitter/nvim-treesitter {{{

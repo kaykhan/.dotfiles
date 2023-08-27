@@ -138,3 +138,8 @@ if [ -f ~/.env ]; then
 else
     print "404: ~/.env"
 fi
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+

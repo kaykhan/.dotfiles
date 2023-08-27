@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/kay/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["copilot.vim"] = {
+    loaded = true,
+    path = "/home/kay/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
+  },
   ["fidget.nvim"] = {
     loaded = true,
     path = "/home/kay/.local/share/nvim/site/pack/packer/start/fidget.nvim",
@@ -303,7 +308,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
-    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0" },
+    config = { "\27LJ\2\n–\3\0\0\a\0\18\0:5\0\0\0006\1\1\0009\1\2\0019\1\3\1'\3\4\0'\4\5\0'\5\6\0\18\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0'\4\a\0'\5\6\0\18\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0'\4\b\0'\5\t\0\18\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0'\4\n\0'\5\v\0\18\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0'\4\f\0'\5\r\0\18\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0'\4\14\0'\5\15\0\18\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0'\4\16\0'\5\17\0\18\6\0\0B\1\5\1K\0\1\0\20<C-\\><C-n><C-w>\n<C-w>\22<Cmd>wincmd l<CR>\n<C-l>\22<Cmd>wincmd k<CR>\n<C-k>\22<Cmd>wincmd j<CR>\n<C-j>\22<Cmd>wincmd h<CR>\n<C-h>\ajk\15<C-\\><C-n>\n<esc>\6t\bset\vkeymap\bvim\1\0\1\vbuffer\3\0ù\5\1\0\3\0\v\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0003\1\6\0=\1\5\0006\0\a\0009\0\b\0'\2\t\0B\0\2\0016\0\a\0009\0\b\0'\2\n\0B\0\2\1K\0\1\0—\4                    autocmd TermEnter term://*toggleterm#*\n                          \\ tnoremap <silent><c-t> <Cmd>exe v:count1 . \"ToggleTerm\"<CR>\n\n                    \" By applying the mappings this way you can pass a count to your\n                    \" mapping to open a specific window.\n                    \" For example: 2<C-t> will open terminal 2\n                    nnoremap <silent><c-t> <Cmd>exe v:count1 . \"ToggleTerm\"<CR>\n                    inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . \"ToggleTerm\"<CR>\n            :autocmd! TermOpen term://* lua set_terminal_keymaps()\bcmd\bvim\0\25set_terminal_keymaps\a_G\1\0\2\14direction\nfloat\17open_mapping\n<c-\\>\nsetup\15toggleterm\frequire\0" },
     loaded = true,
     path = "/home/kay/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
@@ -342,14 +347,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
 -- Config for: sentiment.nvim
 time([[Config for sentiment.nvim]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14sentiment\frequire\0", "config", "sentiment.nvim")
 time([[Config for sentiment.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n–\3\0\0\a\0\18\0:5\0\0\0006\1\1\0009\1\2\0019\1\3\1'\3\4\0'\4\5\0'\5\6\0\18\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0'\4\a\0'\5\6\0\18\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0'\4\b\0'\5\t\0\18\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0'\4\n\0'\5\v\0\18\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0'\4\f\0'\5\r\0\18\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0'\4\14\0'\5\15\0\18\6\0\0B\1\5\0016\1\1\0009\1\2\0019\1\3\1'\3\4\0'\4\16\0'\5\17\0\18\6\0\0B\1\5\1K\0\1\0\20<C-\\><C-n><C-w>\n<C-w>\22<Cmd>wincmd l<CR>\n<C-l>\22<Cmd>wincmd k<CR>\n<C-k>\22<Cmd>wincmd j<CR>\n<C-j>\22<Cmd>wincmd h<CR>\n<C-h>\ajk\15<C-\\><C-n>\n<esc>\6t\bset\vkeymap\bvim\1\0\1\vbuffer\3\0ù\5\1\0\3\0\v\0\0186\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0003\1\6\0=\1\5\0006\0\a\0009\0\b\0'\2\t\0B\0\2\0016\0\a\0009\0\b\0'\2\n\0B\0\2\1K\0\1\0—\4                    autocmd TermEnter term://*toggleterm#*\n                          \\ tnoremap <silent><c-t> <Cmd>exe v:count1 . \"ToggleTerm\"<CR>\n\n                    \" By applying the mappings this way you can pass a count to your\n                    \" mapping to open a specific window.\n                    \" For example: 2<C-t> will open terminal 2\n                    nnoremap <silent><c-t> <Cmd>exe v:count1 . \"ToggleTerm\"<CR>\n                    inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . \"ToggleTerm\"<CR>\n            :autocmd! TermOpen term://* lua set_terminal_keymaps()\bcmd\bvim\0\25set_terminal_keymaps\a_G\1\0\2\14direction\nfloat\17open_mapping\n<c-\\>\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-treesitter ]]
