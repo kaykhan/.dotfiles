@@ -77,7 +77,7 @@ local plugins = {
 			ts_update()
 		end,
 		dependencies = {
-			"p00f/nvim-ts-rainbow", -- color nested {}
+            "HiPhish/rainbow-delimiters.nvim"
 		},
 	},
 	{
