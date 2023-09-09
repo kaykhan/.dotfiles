@@ -2,7 +2,6 @@ require("telescope").setup({
 	defaults = {
 		-- Default configuration for telescope goes here:
 		-- config_key = value,
-
 		layout_config = {
 			horizontal = {
 				prompt_position = "top",
@@ -18,6 +17,10 @@ require("telescope").setup({
 		},
 	},
 	pickers = {
+		find_files = {
+			find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+		},
+
 		-- Default configuration for builtin pickers goes here:
 		-- picker_name = {
 		--   picker_config_key = value,

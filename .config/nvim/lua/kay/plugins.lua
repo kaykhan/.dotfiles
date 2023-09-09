@@ -129,6 +129,7 @@ local plugins = {
 	"petertriho/nvim-scrollbar",
 	"RRethy/vim-illuminate",
 	"github/copilot.vim",
+    "dstein64/vim-startuptime",
 }
 
 require("lazy").setup(plugins, {})
