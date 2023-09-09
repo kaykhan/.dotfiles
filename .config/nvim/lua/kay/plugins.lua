@@ -157,6 +157,7 @@ local plugins = {
 	},
 
 	"kristijanhusak/vim-dadbod-completion",
+  "dstein64/vim-startuptime",
 }
 
 require("lazy").setup(plugins, {})
