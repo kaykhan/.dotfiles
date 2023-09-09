@@ -77,7 +77,7 @@ local plugins = {
 			ts_update()
 		end,
 		dependencies = {
-            "HiPhish/rainbow-delimiters.nvim"
+			"HiPhish/rainbow-delimiters.nvim",
 		},
 	},
 	{
@@ -129,7 +129,35 @@ local plugins = {
 	"petertriho/nvim-scrollbar",
 	"RRethy/vim-illuminate",
 	"github/copilot.vim",
-    "dstein64/vim-startuptime",
+	{
+		"kndndrj/nvim-dbee",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+		build = function()
+			-- Install tries to automatically detect the install method.
+			-- if it fails, try calling it with one of these parameters:
+			--    "curl", "wget", "bitsadmin", "go"
+			require("dbee").install()
+		end,
+		config = function()
+			require("dbee").setup({
+				lazy = true,
+				debug = true,
+			})
+		end,
+	},
+	"tpope/vim-dadbod",
+	{
+		"kristijanhusak/vim-dadbod-ui",
+		init = function()
+			vim.g.db_ui_use_nerd_fonts = 1
+			vim.g.db_ui_show_database_icon = 1
+		end,
+	},
+
+	"kristijanhusak/vim-dadbod-completion",
+  "dstein64/vim-startuptime",
 }
 
 require("lazy").setup(plugins, {})
