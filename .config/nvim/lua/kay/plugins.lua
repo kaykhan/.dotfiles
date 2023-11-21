@@ -12,6 +12,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
     "nyoom-engineering/oxocarbon.nvim",
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
@@ -95,7 +101,7 @@ local plugins = {
     {
         "lewis6991/gitsigns.nvim",
     },
-    "lukas-reineke/indent-blankline.nvim",
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl",                              opts = {} },
     {
         "folke/trouble.nvim",
         dependencies = "nvim-tree/nvim-web-devicons",
@@ -117,7 +123,7 @@ local plugins = {
     "goolord/alpha-nvim",
     "numToStr/Comment.nvim",
     "mfussenegger/nvim-dap",
-    { "rcarriga/nvim-dap-ui",      dependencies = { "mfussenegger/nvim-dap" } },
+    { "rcarriga/nvim-dap-ui",                dependencies = { "mfussenegger/nvim-dap" } },
     "theHamsta/nvim-dap-virtual-text",
     "nvim-telescope/telescope-dap.nvim",
     { "mxsdev/nvim-dap-vscode-js", dependencies = { "mfussenegger/nvim-dap" } },
@@ -129,7 +135,7 @@ local plugins = {
     "j-hui/fidget.nvim",
     "petertriho/nvim-scrollbar",
     "RRethy/vim-illuminate",
-    "github/copilot.vim",
+    --"github/copilot.vim",
     {
         "kndndrj/nvim-dbee",
         dependencies = {
@@ -159,6 +165,26 @@ local plugins = {
 
     "kristijanhusak/vim-dadbod-completion",
     "dstein64/vim-startuptime",
+    {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "LspAttach",
+        config = function()
+            require("copilot").setup({})
+        end,
+    },
+    {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+            require("copilot_cmp").setup({
+                suggestion = {
+                    enabled = true,
+                    auto_trigger = true,
+                },
+                panel = { enabled = true},
+            })
+        end,
+    },
 }
 
 require("lazy").setup(plugins, {})
