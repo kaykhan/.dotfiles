@@ -16,4 +16,4 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 -- replace current word your on
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
-
+-- use p to replace without changing the clipboard
