@@ -143,3 +143,6 @@ fi
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
+
+# navigate to the git root of current dir
+alias gr='cd $(git rev-parse --show-toplevel)'
