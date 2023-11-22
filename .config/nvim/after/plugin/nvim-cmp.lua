@@ -64,6 +64,8 @@ cmp.setup({
 	}),
 	-- sources for autocompletion
 	sources = cmp.config.sources({
+		{ name = "copilot", group_index = 2 },
+
 		{ name = "nvim_lsp" }, -- lsp
 		{ name = "vim-dadbod-completion" },
 		{ name = "luasnip" }, -- snippets
@@ -75,6 +77,7 @@ cmp.setup({
 		format = lspkind.cmp_format({
 			maxwidth = 50,
 			ellipsis_char = "...",
+			symbol_map = { Copilot = "" },
 		}),
 	},
 })
