@@ -146,3 +146,36 @@ fi
 
 # navigate to the git root of current dir
 alias gr='cd $(git rev-parse --show-toplevel)'
+
+
+# AWS PROFILES
+
+function aws_set_profile() {
+    if [ $# -ne 1 ]; then
+        echo "Usage: set_aws_profile profile_name"
+        return 1
+    fi
+
+    export AWS_PROFILE=$1
+
+    # Extracts credentials from .aws/credentials
+    local creds=$(grep -A 2 "\[$1\]" ~/.aws/credentials)
+
+    if [ -z "$creds" ]; then
+        echo "Profile not found: $1"
+        return 1
+    fi
+
+    export AWS_ACCESS_KEY_ID=$(echo "$creds" | grep 'aws_access_key_id' | awk -F'=' '{print $2}')
+    export AWS_SECRET_ACCESS_KEY=$(echo "$creds" | grep 'aws_secret_access_key' | awk -F'=' '{print $2}')
+
+    echo "AWS_PROFILE profile set to '$1'"
+    echo "AWS AWS_ACCESS_KEY_ID set to '$AWS_ACCESS_KEY_ID'"
+    echo "AWS_SECRET_ACCESS_KEY set to '$AWS_SECRET_ACCESS_KEY'"
+}
+
+#goenv
+eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
+
