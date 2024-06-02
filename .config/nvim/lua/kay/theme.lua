@@ -8,8 +8,10 @@ end
 
 --vim.opt.background = "dark" -- set this to dark or light
 --vim.cmd("colorscheme oxocarbon")
--- vim.cmd[[colorscheme tokyonight-night]]
+--vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+--vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
+-- vim.cmd[[colorscheme tokyonight-night]]
 
 -- Custom Highlights
 vim.cmd("highlight TSFunction gui=bold")
@@ -56,4 +58,3 @@ highlight! link NeoTreeFileNameOpened NvimTreeOpenedFile
 highlight! link NeoTreeDirectoryName FolderName
 highlight! link NeoTreeGitModified Yellow
 ]])
-
