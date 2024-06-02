@@ -60,14 +60,14 @@ local plugins = {
 	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
+		branch = "v3.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
 		},
 	},
-	{ "akinsho/bufferline.nvim", version = "v3.*", dependencies = "nvim-tree/nvim-web-devicons" },
+	{ "akinsho/bufferline.nvim", version = "v4.*", dependencies = "nvim-tree/nvim-web-devicons" },
 	{
 		"akinsho/toggleterm.nvim",
 		version = "*",
@@ -93,7 +93,7 @@ local plugins = {
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		version = "0.1.0",
+		version = "0.1.8",
 		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
 	"windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...

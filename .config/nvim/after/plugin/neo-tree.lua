@@ -42,4 +42,4 @@ neo_tree.setup({
 	--},
 })
 
-vim.api.nvim_set_keymap("n", "<C-n>", ":NeoTreeFocusToggle<CR>", { silent = true})
+vim.api.nvim_set_keymap("n", "<C-n>", ":Neotree toggle<CR>", { silent = true })
