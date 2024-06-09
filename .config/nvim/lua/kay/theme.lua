@@ -1,10 +1,13 @@
 -- Theme
-vim.g.sonokai_style = "shusia"
-local ok, _ = pcall(vim.cmd, "colorscheme sonokai")
-if not ok then
-	print("colorscheme not found!")
-	return
-end
+--vim.g.sonokai_style = "shusia"
+--local ok, _ = pcall(vim.cmd, "colorscheme sonokai")
+--if not ok then
+--	print("colorscheme not found!")
+--	return
+--end
+
+
+vim.cmd([[colorscheme monokai-pro]])
 
 --vim.opt.background = "dark" -- set this to dark or light
 --vim.cmd("colorscheme oxocarbon")
@@ -36,17 +39,21 @@ vim.cmd("highlight! link DiagnosticSignHint Gray")
 --vim.cmd("highlight! link LspDiagnosticsUnderlineHint Gray")
 
 -- nvim-scrollbar
-vim.cmd("highlight! link DiagnosticVirtualTextError Red")
-vim.cmd("highlight! link DiagnosticVirtualTextWarn Yellow")
-vim.cmd("highlight! link DiagnosticVirtualTextInfo Blue")
+--vim.cmd("highlight! link DiagnosticVirtualTextError Red")
+--vim.cmd("highlight! link DiagnosticVirtualTextWarn Yellow")
+--vim.cmd("highlight! link DiagnosticVirtualTextInfo Blue")
 --vim.cmd("highlight! link DiagnosticVirtualTextHint Gray")
-
 -- illuminate
 vim.cmd("hi IlluminatedWordRead guibg=#525252")
 vim.cmd("hi IlluminatedWordWrite guibg=NONE")
 
 vim.cmd("hi FolderName guifg=#bababa")
 
+
+local current_settings = vim.api.nvim_get_hl(0, {name = 'DiagnosticUnnecessary', link = false})
+current_settings.undercurl = nil
+vim.api.nvim_set_hl(0, 'DiagnosticUnnecessary', current_settings)
+--
 -- Link nvimtree colors to neotree until sonokai implements neotree colors
 vim.cmd([[
 highlight! link NeoTreeDirectoryIcon NvimTreeFolderIcon
