@@ -1,4 +1,4 @@
-require("ibl").setup({
-    --show_current_context = true,
-    --use_treesitter = true,
-})
+--require("ibl").setup({
+--    --show_current_context = true,
+--    --use_treesitter = true,
+--})

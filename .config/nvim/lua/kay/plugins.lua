@@ -67,7 +67,7 @@ local plugins = {
 			"MunifTanjim/nui.nvim",
 		},
 	},
-	{ "akinsho/bufferline.nvim", version = "v3.*", dependencies = "nvim-tree/nvim-web-devicons" },
+	{ "akinsho/bufferline.nvim", version = "v4.*", dependencies = "nvim-tree/nvim-web-devicons" },
 	{
 		"akinsho/toggleterm.nvim",
 		version = "*",
@@ -93,7 +93,6 @@ local plugins = {
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		version = "0.1.0",
 		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
 	"windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...
@@ -101,7 +100,7 @@ local plugins = {
 	{
 		"lewis6991/gitsigns.nvim",
 	},
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+	--{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	{
 		"folke/trouble.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
@@ -182,6 +181,69 @@ local plugins = {
 					auto_trigger = true,
 				},
 				panel = { enabled = true },
+			})
+		end,
+	},
+	{
+		"loctvl842/monokai-pro.nvim",
+		config = function()
+			require("monokai-pro").setup({
+				transparent_background = true,
+				terminal_colors = true,
+				devicons = true, -- highlight the icons of `nvim-web-devicons`
+				styles = {
+					comment = { italic = true },
+					keyword = { italic = true }, -- any other keyword
+					type = { italic = true }, -- (preferred) int, long, char, etc
+					storageclass = { italic = true }, -- static, register, volatile, etc
+					structure = { italic = true }, -- struct, union, enum, etc
+					parameter = { italic = true }, -- parameter pass in function
+					annotation = { italic = true },
+					tag_attribute = { italic = true }, -- attribute of tag in reactjs
+				},
+				filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+				-- Enable this will disable filter option
+				day_night = {
+					enable = false, -- turn off by default
+					day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+					night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
+				},
+				inc_search = "background", -- underline | background
+				background_clear = {
+					"float_win",
+					"toggleterm",
+					"telescope",
+					-- "which-key",
+					"renamer",
+					"notify",
+					-- "nvim-tree",
+					"neo-tree",
+					-- "bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
+				}, -- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
+				plugins = {
+					bufferline = {
+						underline_selected = false,
+						underline_visible = false,
+					},
+					indent_blankline = {
+						context_highlight = "default", -- default | pro
+						context_start_underline = false,
+					},
+				},
+				---@param c Colorscheme
+				override = function()
+					return {
+						Normal = { bg = "#121212" },
+						DiagnosticVirtualTextError = { bg = "none" },
+						DiagnosticVirtualTextInformation = { bg = "none" },
+						DiagnosticVirtualTextWarning = { bg = "none" },
+						DiagnosticVirtualTextHint = { fg = "Gray", bg = "none" },
+                        HintText = { bg = "Gray"},
+						DiagnosticSignHint = { fg = "Gray" },
+						LspHintHighlight = { fg = "Gray" },
+						CursorLine = { bg = "#222327" },
+					}
+				end,
 			})
 		end,
 	},

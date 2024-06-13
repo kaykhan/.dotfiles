@@ -6,7 +6,9 @@ custom_codedark.normal.b.fg = "#ffdd33"
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = custom_codedark,
+		theme = "monokai-pro",
+
+		--theme = custom_codedark,
 		component_separators = { left = "|", right = "|" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = {
