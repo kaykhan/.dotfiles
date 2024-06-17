@@ -134,3 +134,6 @@ export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 source ~/.bash_completion/alacritty
 source ~/.bash_completion/alacritty
+
+
+alias clip='xclip -sel clip'
