@@ -1,23 +1,50 @@
-local setup, null_ls = pcall(require, "null-ls")
-if not setup then
-	return
+local null_ls = require("null-ls")
+local vim = vim
+
+-- Helper function to check for the presence of any ESLint config file
+local function has_eslint_config()
+	-- Get the current working directory
+	local cwd = vim.fn.getcwd()
+	-- List of possible ESLint config filenames
+	local eslint_patterns = {
+		".eslintrc",
+		".eslintrc.js",
+		".eslintrc.json",
+		".eslintrc.yaml",
+		".eslintrc.yml",
+	}
+
+	-- Check each pattern
+	for _, pattern in ipairs(eslint_patterns) do
+		local files = vim.fn.globpath(cwd, pattern, false, true)
+		if #files > 0 then
+			return true
+		end
+	end
+
+	return false
 end
 
--- for conciseness
-local formatting = null_ls.builtins.formatting -- to setup formatters
-local diagnostics = null_ls.builtins.diagnostics -- to setup linters
+-- Define the sources
+local sources = {
+	null_ls.builtins.code_actions.gitsigns,
+	null_ls.builtins.formatting.stylua,
+}
 
--- configure null_ls
+-- Conditionally add eslint_d and prettierd if any ESLint config file exists
+if has_eslint_config() then
+	table.insert(
+		sources,
+		null_ls.builtins.diagnostics.eslint_d.with({
+			diagnostics_format = "#{m} #{s}(#{c})",
+		})
+	)
+	table.insert(sources, null_ls.builtins.formatting.eslint_d)
+	table.insert(sources, null_ls.builtins.formatting.prettierd)
+end
+
+-- Setup null-ls with the sources
 null_ls.setup({
 	debug = true,
-	-- setup formatters & linters
-	sources = {
-		null_ls.builtins.code_actions.gitsigns,
-		diagnostics.eslint_d.with({
-			diagnostics_format = "#{m} #{s}(#{c})",
-		}),
-		formatting.stylua,
-		formatting.eslint_d,
-		formatting.prettierd,
-	},
+	sources = sources,
 })

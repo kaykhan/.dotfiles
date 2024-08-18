@@ -101,10 +101,10 @@ lspconfig["gopls"].setup({
     on_attach = on_attach,
 })
 
---lspconfig["yamlls"].setup({
---	capabilities = capabilities,
---	on_attach = on_attach,
---})
+lspconfig["yamlls"].setup({
+ capabilities = capabilities,
+ on_attach = on_attach,
+})
 
 vim.api.nvim_exec([[
   augroup TerraformFiletype
@@ -120,3 +120,5 @@ lspconfig["terraformls"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
+
+lspconfig["biome"].setup({})

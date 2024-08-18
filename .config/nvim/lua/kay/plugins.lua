@@ -100,7 +100,7 @@ local plugins = {
 	{
 		"lewis6991/gitsigns.nvim",
 	},
-	--{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	{
 		"folke/trouble.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
