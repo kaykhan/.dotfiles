@@ -181,3 +181,5 @@ export PATH="$PATH:$GOPATH/bin"
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+export PATH="/home/linuxbrew/.linuxbrew/opt/mysql-client/bin:$PATH"
