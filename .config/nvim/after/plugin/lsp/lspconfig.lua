@@ -122,3 +122,7 @@ lspconfig["terraformls"].setup({
 })
 
 lspconfig["biome"].setup({})
+
+lspconfig["tailwindcss"].setup({})
+
+lspconfig["prismals"].setup({})

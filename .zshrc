@@ -183,3 +183,6 @@ export PATH="$PATH:$GOPATH/bin"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 export PATH="/home/linuxbrew/.linuxbrew/opt/mysql-client/bin:$PATH"
+
+# sst
+export PATH=/home/kay/.sst/bin:$PATH

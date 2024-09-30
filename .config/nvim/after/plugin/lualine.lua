@@ -25,22 +25,22 @@ require("lualine").setup({
     sections = {
         lualine_a = { "mode" },
         lualine_b = {
-            "branch",
+            { "branch", color = { bg = "#181819" } },
             {
                 "diagnostics",
                 sources = { "nvim_diagnostic" },
                 sections = { "error", "warn", "info" },
                 diagnostics_color = {
-                    error = "DiagnosticError", -- color for errors
-                    warn = "DiagnosticWarn", -- color for warnings
-                    info = "DiagnosticInfo", -- color for info
+                    error = { bg = "#181819" }, -- match with the lualine background
+                    warn = { bg = "#181819" }, -- match with the lualine background
+                    info = { bg = "#181819" }, --
                 },
-                symbols = { error = "  ", warn = "  ", info = "  " },
+                symbols = { error = " ", warn = " ", info = " " },
                 colored = true,
                 update_in_insert = false,
                 always_visible = true, -- Always show diagnostics, even when there are none
             },
-            "diff",
+            { "diff",   color = { bg = "#181819" } },
         },
         lualine_c = { { "filename", path = 3 } },
         lualine_x = { "encoding", "fileformat", "filetype" },
