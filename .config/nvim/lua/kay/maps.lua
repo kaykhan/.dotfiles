@@ -23,3 +23,11 @@ vim.api.nvim_set_keymap('n', '<M-j>', ')', {noremap = true, silent = true})
 
 -- Map Alt+K to move to the previous sentence
 vim.api.nvim_set_keymap('n', '<M-k>', '(', {noremap = true, silent = true})
+
+
+-- Navigate between buffers
+vim.api.nvim_set_keymap('n', '<leader>n', ':bnext<CR>', { noremap = true, silent = true })   -- Next buffer
+vim.api.nvim_set_keymap('n', '<leader>p', ':bprevious<CR>', { noremap = true, silent = true }) -- Previous buffer
+
+-- Close the current buffer
+vim.api.nvim_set_keymap('n', '<leader>c', ':bd<CR>', { noremap = true, silent = true })       -- Close buffer
