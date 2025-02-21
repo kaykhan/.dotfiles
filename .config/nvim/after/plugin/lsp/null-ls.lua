@@ -1,6 +1,6 @@
 local null_ls = require("null-ls")
 local vim = vim
-
+local eslint_d = require("none-ls.diagnostics.eslint_d")
 -- Helper function to check for the presence of any ESLint config file
 local function has_eslint_config()
 	-- Get the current working directory
@@ -12,15 +12,19 @@ local function has_eslint_config()
 		".eslintrc.json",
 		".eslintrc.yaml",
 		".eslintrc.yml",
+		"eslint.config.js",
+		"eslint.config.mjs",
 	}
 
 	-- Check each pattern
 	for _, pattern in ipairs(eslint_patterns) do
 		local files = vim.fn.globpath(cwd, pattern, false, true)
 		if #files > 0 then
+			print("eslint config found")
 			return true
 		end
 	end
+	print("eslint config NOT found")
 
 	return false
 end
@@ -35,11 +39,11 @@ local sources = {
 if has_eslint_config() then
 	table.insert(
 		sources,
-		null_ls.builtins.diagnostics.eslint_d.with({
+		eslint_d.with({
 			diagnostics_format = "#{m} #{s}(#{c})",
 		})
 	)
-	table.insert(sources, null_ls.builtins.formatting.eslint_d)
+	--table.insert(sources, eslint_d.formatting.eslint_d)
 	table.insert(sources, null_ls.builtins.formatting.prettierd)
 end
 

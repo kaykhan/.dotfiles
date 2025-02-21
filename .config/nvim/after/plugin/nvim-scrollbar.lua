@@ -16,7 +16,7 @@ require("scrollbar").setup({
 		diagnostic = true,
 		gitsigns = true, -- Requires gitsigns
 		handle = true,
-		search = false, -- Requires hlslens
+		search = true, -- Requires hlslens
 	},
 	excluded_filetypes = {
 		"prompt",
