@@ -34,3 +34,5 @@ vim.cmd([[highlight link Whitespace ExtraWhitespace]])
 vim.cmd([[highlight link NonText ExtraWhitespace]])
 vim.cmd([[highlight link SpecialKey ExtraWhitespace]])
 vim.cmd([[highlight link EndOfBuffer ExtraWhitespace]])
+
+vim.g.snacks_animate = false
