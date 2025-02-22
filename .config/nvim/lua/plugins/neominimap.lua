@@ -49,10 +49,15 @@ return {
 
                 -- How many rows a dot should span
                 y_multiplier = 2, ---@type integer
+
+                sync_cursor = true,
                 click = {
                     enabled = true, ---@type boolean
                     -- Automatically switch focus to minimap when clicked
                     auto_switch_focus = true, ---@type boolean
+                },
+                split = {
+                    minimap_height = 17,
                 },
                 float = {
                     minimap_width = 17,
