@@ -87,8 +87,8 @@ return {
 			})
 		end,
 		keys = {
-			{ "<TAB>", ":BufferLineCycleNext<CR>", desc = "Next buffer" },
-			{ "<S-TAB>", ":BufferLineCyclePrev<CR>", desc = "Previous buffer" },
+			{ "<TAB>", ":BufferLineCycleNext<CR>", desc = "Next buffer", silent = true },
+			{ "<S-TAB>", ":BufferLineCyclePrev<CR>", desc = "Previous buffer", silent = true },
 		},
 	},
 }
