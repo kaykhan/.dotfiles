@@ -83,6 +83,7 @@ return {
                 ts_ls = {},
                 pyright = {},
                 gopls = {},
+                ruff = {},
                 yamlls = {},
                 terraformls = {},
                 biome = {},

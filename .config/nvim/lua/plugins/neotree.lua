@@ -6,7 +6,7 @@ return {
     },
     cmd = "Neotree",
     keys = {
-        { "<C-n>", ":Neotree toggle<CR>", desc = "Toggle Neo-tree" },
+        { "<C-n>", ":Neotree toggle<CR>", desc = "Toggle Neo-tree", silent = true },
     },
     opts = {
         source_selector = {

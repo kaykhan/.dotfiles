@@ -24,6 +24,7 @@ return {
                     "tailwindcss",
                     "yamlls",
                     "gopls",
+                    "ruff",
                 },
                 -- automatic_installation = true, -- Uncomment if you want automatic installation
             })

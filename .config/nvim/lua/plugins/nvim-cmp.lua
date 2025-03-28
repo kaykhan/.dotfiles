@@ -69,6 +69,7 @@ return {
 					{ name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "path" },
+					{ name = "minuet" },
 				}),
 				formatting = {
 					format = lspkind.cmp_format({
