@@ -257,3 +257,10 @@ fi
 ###-end-npm-completion-###
 
 bindkey -v
+
+# bun completions
+[ -s "/home/kay/.bun/_bun" ] && source "/home/kay/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

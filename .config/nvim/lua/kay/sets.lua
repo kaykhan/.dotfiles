@@ -17,6 +17,7 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 vim.opt.signcolumn = "yes"
 vim.opt.mouse = "a"
+vim.o.autoread = true
 --vim.opt.list = true
 
 --vim.opt.listchars = {
