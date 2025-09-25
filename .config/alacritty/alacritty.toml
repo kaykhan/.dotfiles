@@ -1,0 +1,58 @@
+
+[colors.bright]
+black = "#5E5C64"
+blue = "#2A7BDE"
+cyan = "#33C7DE"
+green = "#33DA7A"
+magenta = "#C061CB"
+red = "#F66151"
+white = "#FFFFFF"
+yellow = "#E9AD0C"
+
+[colors.normal]
+black = "#171421"
+blue = "#12488B"
+cyan = "#2AA1B3"
+green = "#26A269"
+magenta = "#A347BA"
+red = "#C01C28"
+white = "#D0CFCC"
+yellow = "#A2734C"
+
+[colors.primary]
+background = "#000000"
+foreground = "#FFFFFF"
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 14
+
+[font.normal]
+family = "Iosevka Nerd Font"
+
+[font.offset]
+x = 0
+y = 2
+
+[window]
+decorations = "none"
+dynamic_padding = true
+opacity = 0.7
+
+[window.padding]
+x = 1
+y = 1
+
+[general]
+live_config_reload = true
+
+[keyboard]
+bindings = [
+  { key = "J", mods = "Command", chars = "\u001bj" },
+  { key = "K", mods = "Command", chars = "\u001bk" },
+
+  { key = "C", mods = "Control|Shift", action = "Copy" },
+  { key = "V", mods = "Control|Shift", action = "Paste" },
+]
