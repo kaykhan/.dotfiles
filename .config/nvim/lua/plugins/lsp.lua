@@ -1,4 +1,5 @@
 return {
+    -- Completion (unchanged)
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
@@ -8,80 +9,64 @@ return {
             "hrsh7th/cmp-cmdline",
         },
     },
+
+    -- LSP
     {
         "neovim/nvim-lspconfig",
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "hrsh7th/cmp-nvim-lsp", -- Autocompletion capabilities
-            "nvimdev/lspsaga.nvim", -- UI Enhancements
+            "hrsh7th/cmp-nvim-lsp",
+            "nvimdev/lspsaga.nvim",
         },
         config = function()
+            local cmp_nvim_lsp = require("cmp_nvim_lsp")
             local lspconfig = require("lspconfig")
             local util = require("lspconfig.util")
-            local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-            -- Global Diagnostic Keymaps
+            -- Global diagnostic keymaps (builtin; keep these)
             local opts = { noremap = true, silent = true }
             vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+            -- (Use either builtin or saga for jumps, not both to avoid conflicts)
+            vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+            vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
             vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
-            -- Capabilities for LSPs (unify position encodings to UTF-16 to match tsserver)
+            -- Capabilities (let 0.11 advertise encodings; don't force utf-16)
             local capabilities = cmp_nvim_lsp.default_capabilities()
-            capabilities.general = capabilities.general or {}
-            capabilities.general.positionEncodings = { "utf-16" }
 
-            -- On Attach Function (shared)
+            -- Shared on_attach
             local on_attach = function(client, bufnr)
-                -- Enable omnifunc completion
-                vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+                vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+                local b = { noremap = true, silent = true, buffer = bufnr }
 
-                -- Buffer-local LSP Keymaps
-                local bufopts = { noremap = true, silent = true, buffer = bufnr }
-                vim.keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", bufopts)
-                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-                vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", bufopts)
-                vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", bufopts)
-                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-                vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-                vim.keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", bufopts)
-                vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", bufopts)
-                vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", bufopts)
-                vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", bufopts)
-                vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-                vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", bufopts)
-                vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", bufopts)
-                vim.keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", bufopts)
+                -- Saga-enhanced UI
+                vim.keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", b)
+                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, b)
+                vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", b)
+                vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", b)
+                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, b)
+                vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, b)
+                vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", b)
+                vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", b)
+                vim.keymap.set("n", "gr", vim.lsp.buf.references, b)
+                vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", b)
 
-                -- Format mapping: force Biome (avoid eslint/ts_ls/null-ls)
+                -- Format
                 vim.keymap.set("n", "<space>f", function()
-                    vim.lsp.buf.format({
-                        async = true,
-                    })
-                end, bufopts)
+                    vim.lsp.buf.format({ async = true })
+                end, b)
             end
 
-            -- Helper to compose per-server on_attach with the shared one
-            local function extend_on_attach(extra)
-                return function(client, bufnr)
-                    if type(extra) == "function" then extra(client, bufnr) end
-                    on_attach(client, bufnr)
-                end
-            end
-
-            -- Servers and their specific settings
+            -- Servers (0.11-native). You can still rely on nvim-lspconfig presets.
             local servers = {
-                -- Biome: monorepo-friendly root + explicit filetypes; use lsp-proxy
+                -- Biome: only if project has Biome config to avoid clashes
                 biome = {
                     cmd = { "biome", "lsp-proxy" },
                     filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "jsonc" },
-                    -- Prefer the closest biome config; then fall back to the repo root.
-                    root_dir = util.root_pattern("biome.json", "biome.jsonc")
-                        or util.root_pattern("package.json", ".git"),
                     single_file_support = true,
                 },
+
                 lua_ls = {
                     settings = {
                         Lua = {
@@ -97,48 +82,59 @@ return {
                 },
 
                 ts_ls = {
+                    on_attach = function(client, bufnr)
+                        -- Turn off TypeScript’s formatter so it won’t compete with Biome
+                        client.server_capabilities.documentFormattingProvider = false
+                        client.server_capabilities.documentRangeFormattingProvider = false
+                    end,
+
                 },
                 pyright = {},
                 gopls = {},
-                ruff = {},
+
+                -- Ruff: prefer the built-in server
+                ruff = { cmd = { "ruff", "server" } },
+
                 yamlls = {},
                 terraformls = {},
                 tailwindcss = {},
                 prismals = {},
                 eslint = {},
                 html = {},
-                jsonls = {},
+                jsonls = {}, -- valid lspconfig name
                 cssls = {},
                 vimls = {},
             }
 
-            -- Apply setup for each LSP server (compose on_attach if server provides one)
-            for server, config in pairs(servers) do
-                config.capabilities = capabilities
-                if config.on_attach then
-                    config.on_attach = extend_on_attach(config.on_attach)
-                else
-                    config.on_attach = on_attach
+            -- Register & enable
+            local to_enable = {}
+            for name, cfg in pairs(servers) do
+                cfg.capabilities = capabilities
+                local extra_on_attach = cfg.on_attach
+                cfg.on_attach = function(client, bufnr)
+                    if type(extra_on_attach) == "function" then extra_on_attach(client, bufnr) end
+                    on_attach(client, bufnr)
                 end
-                lspconfig[server].setup(config)
+                vim.lsp.config(name, cfg)
+                table.insert(to_enable, name)
             end
+            vim.lsp.enable(to_enable)
 
+            -- Diagnostics behavior (0.11 virtual_text is off by default)
             vim.diagnostic.config({
                 virtual_text = { source = true },
-                float = true,
+                float = { source = true },
                 severity_sort = true,
                 update_in_insert = true,
             })
-            -- Set Terraform file types
-            vim.api.nvim_exec(
-                [[
-          augroup TerraformFiletype
-            autocmd!
-            autocmd BufRead,BufNewFile *.tf,*.hcl,*.tfbackend,*.tfvars set filetype=terraform
-          augroup END
-        ]],
-                false
-            )
+
+            -- Terraform filetypes (use modern autocmds)
+            local aug = vim.api.nvim_create_augroup("TerraformFiletype", { clear = true })
+            vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+                group = aug,
+                pattern = { "*.tf", "*.hcl", "*.tfbackend", "*.tfvars" },
+                callback = function() vim.bo.filetype = "terraform" end,
+            })
         end,
     },
 }

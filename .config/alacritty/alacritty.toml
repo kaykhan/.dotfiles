@@ -38,7 +38,7 @@ x = 0
 y = 2
 
 [window]
-decorations = "none"
+decorations = "buttonless"
 dynamic_padding = true
 opacity = 0.7
 

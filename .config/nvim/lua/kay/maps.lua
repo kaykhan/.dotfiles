@@ -20,7 +20,6 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- Map Alt+J to move to the next sentence
 vim.api.nvim_set_keymap("n", "<M-j>", ")", { noremap = true, silent = true })
-
 -- Map Alt+K to move to the previous sentence
 vim.api.nvim_set_keymap("n", "<M-k>", "(", { noremap = true, silent = true })
 
