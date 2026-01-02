@@ -13,109 +13,130 @@ return {
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "hrsh7th/cmp-nvim-lsp", -- Autocompletion capabilities
-            "nvimdev/lspsaga.nvim", -- UI Enhancements
+            "hrsh7th/cmp-nvim-lsp",
+            "nvimdev/lspsaga.nvim",
         },
         config = function()
-            local lspconfig = require("lspconfig")
             local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-            -- Global Diagnostic Keymaps
-            local opts = { noremap = true, silent = true }
-            vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-            vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
+            -- Diagnostics: update while typing (new API)
+            vim.diagnostic.config({ update_in_insert = true })
 
-            -- Capabilities for LSPs
-            local capabilities = cmp_nvim_lsp.default_capabilities()
+            -- Global diagnostics keymaps
+            local gopts = { noremap = true, silent = true }
+            vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, gopts)
+            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, gopts)
+            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, gopts)
+            vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, gopts)
 
-            -- On Attach Function
-            local on_attach = function(client, bufnr)
-                -- Enable omnifunc completion
-                vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+            -- LSP attach (buffer-local maps, formatting tweaks, etc.)
+            vim.api.nvim_create_autocmd("LspAttach", {
+                group = vim.api.nvim_create_augroup("UserLspAttach", { clear = true }),
+                callback = function(args)
+                    local bufnr = args.buf
+                    local client = vim.lsp.get_client_by_id(args.data.client_id)
+                    if not client then
+                        return
+                    end
 
-                if client.name == "ts_ls" then
-                    client.server_capabilities.document_formatting = false
-                    client.server_capabilities.document_range_formatting = false
-                end
+                    -- Enable omnifunc
+                    vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-                -- Buffer-local LSP Keymaps
-                local bufopts = { noremap = true, silent = true, buffer = bufnr }
-                vim.keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", bufopts)
-                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-                vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", bufopts)
-                vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", bufopts)
-                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-                vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-                vim.keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", bufopts)
-                vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", bufopts)
-                vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", bufopts)
-                vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", bufopts)
-                vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-                vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", bufopts)
-                vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", bufopts)
-                vim.keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", bufopts)
-                vim.keymap.set("n", "<space>f", function()
-                    vim.lsp.buf.format({ async = true })
-                end, bufopts)
-            end
+                    -- Disable formatting from ts_ls (use dedicated formatter instead)
+                    if client.name == "ts_ls" then
+                        client.server_capabilities.documentFormattingProvider = false
+                        client.server_capabilities.documentRangeFormattingProvider = false
+                    end
 
-            -- Enable diagnostic updates in insert mode
-            vim.lsp.handlers["textDocument/publishDiagnostics"] =
-                vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { update_in_insert = true })
-
-            -- List of LSP servers to install
-            local servers = {
-                lua_ls = {
-                    settings = {
-                        Lua = {
-                            diagnostics = { globals = { "vim" } },
-                            workspace = {
-                                library = {
-                                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                                    [vim.fn.stdpath("config") .. "/lua"] = true,
-                                },
-                            },
-                        },
-                    },
-                },
-                ts_ls = {},
-                pyright = {},
-                gopls = {},
-                ruff = {},
-                yamlls = {},
-                terraformls = {},
-                biome = {},
-                tailwindcss = {},
-                prismals = {},
-                eslint = {
-                    on_attach = function(client, bufnr)
+                    -- ESLint: fix on save
+                    if client.name == "eslint" then
                         vim.api.nvim_create_autocmd("BufWritePre", {
                             buffer = bufnr,
                             command = "EslintFixAll",
                         })
-                    end,
-                },
-            }
+                    end
 
-            -- Apply setup for each LSP server
-            for server, config in pairs(servers) do
-                config.capabilities = capabilities
-                config.on_attach = on_attach
-                lspconfig[server].setup(config)
+                    local b = { noremap = true, silent = true, buffer = bufnr }
+                    vim.keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", b)
+                    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, b)
+                    vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", b)
+                    vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", b)
+                    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, b)
+                    vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, b)
+                    vim.keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", b)
+                    vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", b)
+                    vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", b)
+                    vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", b)
+                    vim.keymap.set("n", "gr", vim.lsp.buf.references, b)
+                    vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", b)
+                    vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", b)
+                    vim.keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", b)
+                    vim.keymap.set("n", "<space>f", function()
+                        vim.lsp.buf.format({ async = true })
+                    end, b)
+                end,
+            })
+
+            -- Capabilities (cmp)
+            local capabilities = cmp_nvim_lsp.default_capabilities()
+
+            -- Helper to register a server with common capabilities
+            local function enable(server, cfg)
+                cfg = cfg or {}
+                cfg.capabilities = vim.tbl_deep_extend("force", cfg.capabilities or {}, capabilities)
+                vim.lsp.config(server, cfg)
             end
 
-            -- Set Terraform file types
-            vim.api.nvim_exec(
-                [[
-          augroup TerraformFiletype
-            autocmd!
-            autocmd BufRead,BufNewFile *.tf,*.hcl,*.tfbackend,*.tfvars set filetype=terraform
-          augroup END
-        ]],
-                false
-            )
+            -- Servers (Neovim 0.11+ names)
+            enable("lua_ls", {
+                settings = {
+                    Lua = {
+                        diagnostics = { globals = { "vim" } },
+                        workspace = {
+                            library = {
+                                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                                [vim.fn.stdpath("config") .. "/lua"] = true,
+                            },
+                        },
+                    },
+                },
+            })
+
+            enable("ts_ls") -- TypeScript/JavaScript
+            enable("pyright")
+            enable("gopls")
+            enable("ruff", {}) -- Ruff (new API name is 'ruff')
+            enable("yamlls")
+            enable("terraformls")
+            enable("biome")
+            enable("tailwindcss")
+            enable("prismals")
+            enable("eslint")
+
+            -- Enable all of the above
+            vim.lsp.enable({
+                "lua_ls",
+                "ts_ls",
+                "pyright",
+                "gopls",
+                "ruff",
+                "yamlls",
+                "terraformls",
+                "biome",
+                "tailwindcss",
+                "prismals",
+                "eslint",
+            })
+
+            -- Terraform filetypes
+            vim.api.nvim_create_augroup("TerraformFiletype", { clear = true })
+            vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+                group = "TerraformFiletype",
+                pattern = { "*.tf", "*.hcl", "*.tfbackend", "*.tfvars" },
+                callback = function()
+                    vim.bo.filetype = "terraform"
+                end,
+            })
         end,
     },
 }

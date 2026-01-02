@@ -10,7 +10,7 @@ zmodload zsh/zprof
 export PATH=$HOME/bin:/usr/local/bin:/usr/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/kay/.oh-my-zsh"
+export ZSH="/home/khan/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -126,11 +126,11 @@ eval "$(pyenv init --path)"
 
 eval "$(pyenv init -)"
 
-[[ -s "/home/kay/.gvm/scripts/gvm" ]] && source "/home/kay/.gvm/scripts/gvm"
+[[ -s "/home/khan/.gvm/scripts/gvm" ]] && source "/home/khan/.gvm/scripts/gvm"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias dotfiles='/usr/bin/git --git-dir=/home/kay/.dotfiles/ --work-tree=/home/kay'
+alias dotfiles='/usr/bin/git --git-dir=/home/khan/.dotfiles/ --work-tree=/home/khan'
 #source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 if [ -f ~/.env ]; then
@@ -174,18 +174,13 @@ function aws_set_profile() {
     echo "AWS_SECRET_ACCESS_KEY set to '$AWS_SECRET_ACCESS_KEY'"
 }
 
-#goenv
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
-
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 export PATH="/home/linuxbrew/.linuxbrew/opt/mysql-client/bin:$PATH"
 
 # sst
-export PATH=/home/kay/.sst/bin:$PATH
+export PATH=/home/khan/.sst/bin:$PATH
 ###-begin-npm-completion-###
 #
 # npm command completion script
@@ -259,8 +254,22 @@ fi
 bindkey -v
 
 # bun completions
-[ -s "/home/kay/.bun/_bun" ] && source "/home/kay/.bun/_bun"
+[ -s "/home/khan/.bun/_bun" ] && source "/home/khan/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+#goenv
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="$GOENV_ROOT/shims:$PATH"
+
+
+# undercurls
+export TERM=alacritty
+export COLORTERM=truecolor
+
+eval "$(dircolors -b ~/.dircolors)"

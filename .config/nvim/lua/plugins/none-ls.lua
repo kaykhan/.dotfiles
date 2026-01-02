@@ -3,7 +3,7 @@ return {
         "nvimtools/none-ls.nvim", -- configure formatters & linters
         dependencies = {
             "nvimtools/none-ls-extras.nvim",
-            "jayp0521/mason-null-ls.nvim"
+            "jayp0521/mason-null-ls.nvim",
         },
         config = function()
             local null_ls = require("null-ls")
@@ -57,9 +57,9 @@ return {
 
             -- Setup null-ls with the sources
             null_ls.setup({
-                debug = true,
+                debug = false,
                 sources = sources,
             })
-        end
+        end,
     },
 }
