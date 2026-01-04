@@ -36,6 +36,9 @@ return {
 				"html",
 				"css",
 				"python",
+				"prisma",
+				"c",
+				"cpp",
 			}
 
 			-- Install missing parsers (no-op if already installed)

@@ -136,7 +136,7 @@ alias dotfiles='/usr/bin/git --git-dir=/home/khan/.dotfiles/ --work-tree=/home/k
 if [ -f ~/.env ]; then
     source ~/.env
 else
-    print "404: ~/.env"
+    # print "404: ~/.env"
 fi
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
