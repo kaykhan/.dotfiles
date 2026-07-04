@@ -264,3 +264,5 @@ bindkey -v
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+alias dotfiles='/usr/bin/git --git-dir=/home/ubuntu/.dotfiles/ --work-tree=/home/ubuntu'

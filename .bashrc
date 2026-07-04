@@ -137,3 +137,5 @@ source ~/.bash_completion/alacritty
 
 
 alias clip='xclip -sel clip'
+
+alias dotfiles='/usr/bin/git --git-dir=/home/ubuntu/.dotfiles/ --work-tree=/home/ubuntu'
