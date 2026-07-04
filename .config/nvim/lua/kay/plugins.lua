@@ -13,4 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	import = "plugins", -- This automatically loads all files inside `lua/plugins/`
+}, {
+	rocks = { enabled = false },
 })

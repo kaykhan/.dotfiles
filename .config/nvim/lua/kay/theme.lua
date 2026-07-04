@@ -38,7 +38,14 @@ end
 
 vim.diagnostic.config({
     severity_sort = true, -- ensures highest-severity sign wins on each line
-    signs = true,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = signs.Error.icon,
+            [vim.diagnostic.severity.WARN] = signs.Warn.icon,
+            [vim.diagnostic.severity.INFO] = signs.Info.icon,
+            [vim.diagnostic.severity.HINT] = signs.Hint.icon,
+        },
+    },
 })
 
 

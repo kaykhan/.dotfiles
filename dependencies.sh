@@ -13,6 +13,7 @@ sudo apt-get install -y \
   make \
   wget \
   xclip \
+  xdg-utils \
   python3-pip
 
 # ZSH
@@ -91,8 +92,20 @@ sudo apt-get install -y \
 brew install pyenv
 
 # nvim
-brew install neovim
-brew install efm-langserver
+brew install \
+  neovim \
+  efm-langserver \
+  tree-sitter-cli \
+  go \
+  gopls \
+  ruff \
+  lazygit \
+  uv \
+  imagemagick \
+  ghostscript \
+  mermaid-cli \
+  tectonic \
+  luarocks
 
 python3 -m pip install --user --upgrade pynvim
 

@@ -28,11 +28,9 @@ return {
                 for _, pattern in ipairs(eslint_patterns) do
                     local files = vim.fn.globpath(cwd, pattern, false, true)
                     if #files > 0 then
-                        print("eslint config found")
                         return true
                     end
                 end
-                print("eslint config NOT found")
 
                 return false
             end

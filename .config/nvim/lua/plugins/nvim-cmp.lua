@@ -9,7 +9,6 @@ return {
             "L3MON4D3/LuaSnip",
             "rafamadriz/friendly-snippets",
             "onsails/lspkind-nvim",
-            "zbirenbaum/copilot-cmp",
             "kristijanhusak/vim-dadbod-completion",
         },
         config = function()
@@ -67,7 +66,6 @@ return {
                     ["<CR>"] = cmp.mapping.confirm({ select = false }),
                 }),
                 sources = cmp.config.sources({
-                    { name = "copilot",              group_index = 2 },
                     { name = "nvim_lsp" },
                     { name = "vim-dadbod-completion" },
                     { name = "luasnip" },
@@ -79,7 +77,6 @@ return {
                     format = lspkind.cmp_format({
                         maxwidth = 50,
                         ellipsis_char = "...",
-                        symbol_map = { Copilot = "" },
                     }),
                 },
             })

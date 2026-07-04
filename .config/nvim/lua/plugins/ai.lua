@@ -25,9 +25,9 @@ return {
             {
                 "<c-.>",
                 function()
-                    require("sidekick.cli").toggle()
+                    require("sidekick.cli").focus()
                 end,
-                desc = "Sidekick Toggle",
+                desc = "Sidekick Focus",
                 mode = { "n", "t", "i", "x" },
             },
             {
@@ -99,13 +99,7 @@ return {
         cmd = "Copilot",
         event = "LspAttach",
         config = function()
-            require("copilot").setup({})
-        end,
-    },
-    {
-        "zbirenbaum/copilot-cmp",
-        config = function()
-            require("copilot_cmp").setup({
+            require("copilot").setup({
                 suggestion = {
                     enabled = true,
                     auto_trigger = true,
@@ -175,19 +169,6 @@ return {
                 },
                 ft = { "", "Avante" },
             },
-        },
-    },
-    {
-        "jackMort/ChatGPT.nvim",
-        event = "VeryLazy",
-        config = function()
-            require("chatgpt").setup()
-        end,
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "folke/trouble.nvim",
-            "nvim-telescope/telescope.nvim",
         },
     },
     -- {
