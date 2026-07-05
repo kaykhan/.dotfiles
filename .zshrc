@@ -271,3 +271,6 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 alias dotfiles='/usr/bin/git --git-dir=/home/ubuntu/.dotfiles/ --work-tree=/home/ubuntu'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"

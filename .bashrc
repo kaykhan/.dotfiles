@@ -144,3 +144,6 @@ source ~/.bash_completion/alacritty
 alias clip='xclip -sel clip'
 
 alias dotfiles='/usr/bin/git --git-dir=/home/ubuntu/.dotfiles/ --work-tree=/home/ubuntu'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
