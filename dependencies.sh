@@ -100,6 +100,7 @@ brew install \
   gopls \
   ruff \
   lazygit \
+  gh \
   uv \
   imagemagick \
   ghostscript \
