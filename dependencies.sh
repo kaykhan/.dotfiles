@@ -6,6 +6,7 @@ sudo apt-get update
 sudo apt-get install -y \
   curl \
   git \
+  gh \
   ca-certificates \
   build-essential \
   procps \
@@ -100,7 +101,6 @@ brew install \
   gopls \
   ruff \
   lazygit \
-  gh \
   uv \
   imagemagick \
   ghostscript \
