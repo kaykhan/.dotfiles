@@ -107,6 +107,8 @@ brew install \
   tectonic \
   luarocks
 
+brew install anomalyco/tap/opencode
+
 python3 -m pip install --user --upgrade pynvim
 
 sudo apt-get install -y \
