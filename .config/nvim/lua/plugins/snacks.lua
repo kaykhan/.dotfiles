@@ -28,7 +28,7 @@ return {
 			animate = { enabled = false },
 			picker = {
 				enabled = true,
-				ui_select = true,
+				ui_select = false,
 			},
 			notifier = { enabled = true },
 			quickfile = { enabled = true },

@@ -4,6 +4,7 @@ return {
         opts = {
             -- add any options here
             cli = {
+                picker = "telescope",
                 mux = {
                     backend = "tmux",
                     enabled = true,
@@ -25,9 +26,9 @@ return {
             {
                 "<c-.>",
                 function()
-                    require("sidekick.cli").focus()
+                    require("sidekick.cli").toggle()
                 end,
-                desc = "Sidekick Focus",
+                desc = "Sidekick Toggle",
                 mode = { "n", "t", "i", "x" },
             },
             {
