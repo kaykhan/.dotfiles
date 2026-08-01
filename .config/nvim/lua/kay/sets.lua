@@ -1,3 +1,7 @@
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+
 vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.tabstop = 4
@@ -37,5 +41,4 @@ vim.cmd([[highlight link SpecialKey ExtraWhitespace]])
 vim.cmd([[highlight link EndOfBuffer ExtraWhitespace]])
 
 vim.g.snacks_animate = false
-
 

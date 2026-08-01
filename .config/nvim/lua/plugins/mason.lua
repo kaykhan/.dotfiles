@@ -1,13 +1,13 @@
 return {
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		config = function()
 			require("mason").setup()
 		end,
 	},
 	{
-		"williamboman/mason-lspconfig.nvim",
-		dependencies = { "williamboman/mason.nvim" },
+		"mason-org/mason-lspconfig.nvim",
+		dependencies = { "mason-org/mason.nvim" },
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
@@ -25,22 +25,9 @@ return {
 					"yamlls",
 					"gopls",
 					"ruff",
+					"clangd",
 				},
-				automatic_enable = {
-					exclude = {
-						"lua_ls",
-						"ts_ls",
-						"pyright",
-						"gopls",
-						"ruff",
-						"yamlls",
-						"terraformls",
-						"biome",
-						"tailwindcss",
-						"prismals",
-						"eslint",
-					},
-				},
+				automatic_enable = false,
 				-- Prevent automatic setup to avoid conflicts with manual setup in lsp.lua
 				automatic_installation = false,
 				handlers = {
@@ -54,7 +41,7 @@ return {
 	},
 	{
 		"jay-babu/mason-null-ls.nvim",
-		dependencies = { "williamboman/mason.nvim" },
+		dependencies = { "mason-org/mason.nvim" },
 		config = function()
 			require("mason-null-ls").setup({
 				ensure_installed = {

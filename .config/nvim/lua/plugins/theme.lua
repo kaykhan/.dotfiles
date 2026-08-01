@@ -49,6 +49,7 @@ return {
 				override = function()
 					return {
 						Normal = { bg = "#121212" },
+						NormalFloat = { bg = "#121212" },
 						DiagnosticVirtualTextError = { bg = "none" },
 						DiagnosticVirtualTextInformation = { bg = "none" },
 						DiagnosticVirtualTextWarning = { bg = "none" },

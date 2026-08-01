@@ -11,8 +11,8 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
+			"mason-org/mason.nvim",
+			"mason-org/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 			"nvimdev/lspsaga.nvim",
 		},
@@ -52,7 +52,7 @@ return {
 					if client.name == "eslint" then
 						vim.api.nvim_create_autocmd("BufWritePre", {
 							buffer = bufnr,
-							command = "EslintFixAll",
+							command = "LspEslintFixAll",
 						})
 					end
 
@@ -104,15 +104,54 @@ return {
 
 			enable("ts_ls") -- TypeScript/JavaScript
 			enable("pyright")
-			enable("gopls")
+			enable("gopls", {
+				filetypes = { "go", "gomod", "gowork" },
+			})
 			enable("ruff", {}) -- Ruff (new API name is 'ruff')
-			enable("yamlls")
+			enable("yamlls", {
+				filetypes = { "yaml" },
+			})
 			enable("terraformls")
 			enable("biome")
-			enable("tailwindcss")
+			enable("tailwindcss", {
+				filetypes = {
+					"astro",
+					"blade",
+					"clojure",
+					"css",
+					"eelixir",
+					"elixir",
+					"eruby",
+					"haml",
+					"handlebars",
+					"heex",
+					"html",
+					"htmlangular",
+					"htmldjango",
+					"javascript",
+					"javascriptreact",
+					"less",
+					"liquid",
+					"markdown",
+					"mustache",
+					"php",
+					"razor",
+					"sass",
+					"scss",
+					"svelte",
+					"stylus",
+					"templ",
+					"twig",
+					"typescript",
+					"typescriptreact",
+					"vue",
+				},
+			})
 			enable("prismals")
 			enable("eslint")
-			enable("clangd")
+			enable("clangd", {
+				filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+			})
 
 			-- Enable all of the above
 			vim.lsp.enable({

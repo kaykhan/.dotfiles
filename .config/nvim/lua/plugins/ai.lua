@@ -105,6 +105,19 @@ return {
     {
         "zbirenbaum/copilot-cmp",
         config = function()
+            -- Upstream still calls client.is_stopped(), which warns on Nvim 0.12+.
+            local source = require("copilot_cmp.source")
+            source.is_available = function(self)
+                if self.client:is_stopped() or self.client.name ~= "copilot" then
+                    return false
+                end
+
+                return next(vim.lsp.get_clients({
+                    bufnr = vim.api.nvim_get_current_buf(),
+                    id = self.client.id,
+                })) ~= nil
+            end
+
             require("copilot_cmp").setup({
                 suggestion = {
                     enabled = true,
@@ -113,82 +126,6 @@ return {
                 panel = { enabled = true },
             })
         end,
-    },
-    {
-        "yetone/avante.nvim",
-        config = function()
-            require("avante").setup({
-                provider = "copilot",
-                model = "gpt-5",
-                hints = { enabled = false },
-                system_prompt = function()
-                    local hub = require("mcphub").get_hub_instance()
-                    return hub and hub:get_active_servers_prompt() or ""
-                end,
-                -- Using function prevents requiring mcphub before it's loaded
-                custom_tools = function()
-                    return {
-                        require("mcphub.extensions.avante").mcp_tool(),
-                    }
-                end,
-            })
-        end,
-        event = "VeryLazy",
-        enabled = false,
-        lazy = false,
-        version = false, -- set this if you want to always pull the latest change
-        opts = {
-            -- add any opts here
-        },
-        -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-        build = "make",
-        -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
-        dependencies = {
-            "stevearc/dressing.nvim",
-            "nvim-lua/plenary.nvim",
-            "MunifTanjim/nui.nvim",
-            --- The below dependencies are optional,
-            "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-            "zbirenbaum/copilot.lua",      -- for providers='copilot'
-            {
-                -- support for image pasting
-                "HakonHarnes/img-clip.nvim",
-                event = "VeryLazy",
-                opts = {
-                    -- recommended settings
-                    default = {
-                        embed_image_as_base64 = false,
-                        prompt_for_file_name = false,
-                        drag_and_drop = {
-                            insert_mode = true,
-                        },
-                        -- required for Windows users
-                        use_absolute_path = true,
-                    },
-                },
-            },
-            {
-                -- Make sure to set this up properly if you have lazy=true
-                "MeanderingProgrammer/render-markdown.nvim",
-                opts = {
-                    file_types = { "", "Avante" },
-                },
-                ft = { "", "Avante" },
-            },
-        },
-    },
-    {
-        "jackMort/ChatGPT.nvim",
-        event = "VeryLazy",
-        config = function()
-            require("chatgpt").setup()
-        end,
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "folke/trouble.nvim",
-            "nvim-telescope/telescope.nvim",
-        },
     },
     -- {
     --     "olimorris/codecompanion.nvim",

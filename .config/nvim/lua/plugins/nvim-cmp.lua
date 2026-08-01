@@ -8,7 +8,7 @@ return {
             "saadparwaiz1/cmp_luasnip",
             "L3MON4D3/LuaSnip",
             "rafamadriz/friendly-snippets",
-            "onsails/lspkind-nvim",
+            "onsails/lspkind.nvim",
             "zbirenbaum/copilot-cmp",
             "kristijanhusak/vim-dadbod-completion",
         },

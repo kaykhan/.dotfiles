@@ -1,11 +1,20 @@
 return {
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-        require("colorizer").setup({
-            "*",                                                   -- Highlight all filetypes
-            css = { rgb_fn = true, hsl_fn = true },                -- Enable color functions for CSS files
-            html = { names = true, rgb_fn = true, hsl_fn = true }, -- Enable color functions for HTML files
-            json = { enable = true },                              -- Enable for JSON files
-        })
-    end,
+    "catgoose/nvim-colorizer.lua",
+    event = "BufReadPre",
+    opts = {
+        filetypes = {
+            "*", -- Highlight all filetypes
+            css = {
+                parsers = { css = true },
+            },
+            html = {
+                parsers = {
+                    names = { enable = true },
+                    rgb = { enable = true },
+                    hsl = { enable = true },
+                },
+            },
+            json = {},
+        },
+    },
 }
