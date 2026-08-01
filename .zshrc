@@ -273,3 +273,4 @@ export TERM=alacritty
 export COLORTERM=truecolor
 
 eval "$(dircolors -b ~/.dircolors)"
+export PATH="/home/linuxbrew/.linuxbrew/opt/libpq/bin:$PATH"
